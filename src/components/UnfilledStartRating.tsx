@@ -10,30 +10,31 @@ interface data {
 
 interface Props {
   data: Array<data>;
-  starStyle: string;
   progressFilledColor?: string;
   progressUnfilledColor?: string;
   ratingIconClassname?: any;
   FilledRatingIcon?: any;
   UnfilledRatingIcon?: any;
+  width: string;
 }
 
 const StarRating = (props: Props) => {
   const {
     data,
-    starStyle,
     progressFilledColor,
     progressUnfilledColor,
     ratingIconClassname,
     FilledRatingIcon,
-    UnfilledRatingIcon
+    UnfilledRatingIcon,
+    width
   } = props;
+  const numberOfRating = Math.max(...data.map(data => data.rating));
   return (
     <>
       {
         <div className="unfilled">
           {UnfilledRatingIcon
-            ? data.map(star => (
+            ? [...Array(numberOfRating)].map(star => (
                 <span
                   className={ratingIconClassname ? ratingIconClassname : 'star'}
                   style={{
@@ -42,7 +43,7 @@ const StarRating = (props: Props) => {
                   {UnfilledRatingIcon}
                 </span>
               ))
-            : data.map((star: data) => (
+            : [...Array(numberOfRating)].map((star: data) => (
                 <span
                   className={ratingIconClassname ? ratingIconClassname : 'star'}
                   style={{
@@ -53,10 +54,10 @@ const StarRating = (props: Props) => {
               ))}
           <FilledStarRating
             data={data}
-            starStyle={starStyle}
             progressFilledColor={progressFilledColor}
             ratingIconClassname={ratingIconClassname}
             FilledRatingIcon={FilledRatingIcon}
+            width={width}
           />
         </div>
       }

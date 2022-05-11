@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
 import StarRating from '../src/components/StarRating';
 import { BsCircleFill, BsCircle } from 'react-icons/bs';
 
@@ -29,14 +28,6 @@ const App = () => {
   ];
 
   const showRatingHeader = true;
-
-  let totalRating = 0;
-
-  data.map((rating) => {
-    totalRating += totalRating + rating.rating;
-  });
-
-  const percentage = `${Math.round(totalRating / data.length) * data.length}%`;
   const progressFilledColor = 'red';
   const progressUnfilledColor = 'red';
   const ratingIconClassname = 'custom';
@@ -46,7 +37,6 @@ const App = () => {
     <div>
       <StarRating
         data={data}
-        starStyle={percentage}
         showRatingHeader={showRatingHeader}
         progressFilledColor={progressFilledColor}
         progressUnfilledColor={progressUnfilledColor}

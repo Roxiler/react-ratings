@@ -9,7 +9,6 @@ interface data {
 
 interface Props {
   data: Array<data>;
-  starStyle: string;
   showRatingHeader: boolean;
   progressFilledColor: string;
   progressUnfilledColor: string;
@@ -19,10 +18,8 @@ interface Props {
 }
 
 function StarRating(props: Props) {
-  let totalRating = 0;
   const {
     data,
-    starStyle,
     showRatingHeader,
     progressFilledColor,
     progressUnfilledColor,
@@ -30,25 +27,39 @@ function StarRating(props: Props) {
     FilledRatingIcon,
     UnfilledRatingIcon
   } = props;
+  const numberOfRating = Math.max(...data.map(data => data.rating));
+  let totalCount = 0;
+  totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
+  const per: any = {};
+  let totalPercentage = 0;
+  let starPercentageRounded: any = ``;
+
   data.map(rating => {
-    totalRating += totalRating + rating.rating;
+    const perOfIndividual = rating.count / totalCount;
+    const key = `${rating.rating}`;
+    per[key] = perOfIndividual;
   });
+
+  for (let x in per) {
+    totalPercentage += Number(x) * per[x];
+  }
+  const percentage = (Number(totalPercentage.toFixed(2)) / numberOfRating) * 100;
+  starPercentageRounded = `${percentage}%`;
   return (
     <>
       {showRatingHeader && (
         <div className="starRating">
           <UnfilledStartRating
             data={data}
-            starStyle={starStyle}
             progressFilledColor={progressFilledColor}
             progressUnfilledColor={progressUnfilledColor}
             ratingIconClassname={ratingIconClassname}
             FilledRatingIcon={FilledRatingIcon}
             UnfilledRatingIcon={UnfilledRatingIcon}
+            width={starPercentageRounded}
           />
           <p className="rating">
-            {(Math.round(totalRating / data.length) * data.length * data.length) / 100} out of{' '}
-            {data.length}
+            {totalPercentage.toFixed(2)} out of {numberOfRating}
           </p>
         </div>
       )}

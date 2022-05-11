@@ -1,6 +1,4 @@
 import * as React from 'react';
+import StarRating from './components/UnfilledStartRating';
 
-// Delete me
-export const Thing = () => {
-  return <div>the snozzberries taste like snozzberries</div>;
-};
+export { StarRating };

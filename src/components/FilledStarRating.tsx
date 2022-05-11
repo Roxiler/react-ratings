@@ -9,20 +9,21 @@ interface data {
 
 interface Props {
   data: Array<data>;
-  starStyle: string;
   progressFilledColor?: string;
   ratingIconClassname?: any;
   FilledRatingIcon?: any;
+  width: string;
 }
 
 function FilledStarRating(props: Props) {
-  const { data, starStyle, progressFilledColor, ratingIconClassname, FilledRatingIcon } = props;
+  const { data, progressFilledColor, ratingIconClassname, FilledRatingIcon, width } = props;
+  const numberOfRating = Math.max(...data.map(data => data.rating));
   return (
     <>
       {
-        <div className="filled" style={{ width: starStyle }}>
+        <div className="filled" style={{ width: width }}>
           {FilledRatingIcon
-            ? data.map((star: data) => (
+            ? [...Array(numberOfRating)].map((star: data) => (
                 <span
                   className={ratingIconClassname ? ratingIconClassname : 'star'}
                   style={{
@@ -31,7 +32,7 @@ function FilledStarRating(props: Props) {
                   {FilledRatingIcon}
                 </span>
               ))
-            : data.map((star: data) => (
+            : [...Array(numberOfRating)].map((star: data) => (
                 <span
                   className={ratingIconClassname ? ratingIconClassname : 'star'}
                   style={{
