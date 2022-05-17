@@ -10,6 +10,7 @@ interface Props {
   progressUnfilledColor?: string;
 }
 
+// eslint-disable-next-line space-before-function-paren
 function ProgressBar(props: Props) {
   const { percentage, progressFilledColor, progressUnfilledColor } = props;
 
@@ -17,7 +18,7 @@ function ProgressBar(props: Props) {
     <div
       className="progress-bar"
       style={{
-        backgroundColor: progressFilledColor ? progressFilledColor : ''
+        backgroundColor: progressFilledColor || ''
       }}
       role="progressbar"
       aria-valuenow={40}
@@ -27,7 +28,7 @@ function ProgressBar(props: Props) {
         className="filled-bar"
         style={{
           width: `${percentage}%`,
-          backgroundColor: progressUnfilledColor ? progressUnfilledColor : ''
+          backgroundColor: progressUnfilledColor || ''
         }}></div>
     </div>
   );

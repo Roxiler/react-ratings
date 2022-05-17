@@ -1,4 +1,4 @@
-import * as React from 'react';
 import StarRating from './components/UnfilledStartRating';
+import Rating from './components/Rating';
 
-export { StarRating };
+export { StarRating, Rating };

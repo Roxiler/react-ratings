@@ -28,16 +28,19 @@ const StarRating = (props: Props) => {
     UnfilledRatingIcon,
     width
   } = props;
-  const numberOfRating = Math.max(...data.map(data => data.rating));
+  const numberOfRating = Math.max(...data.map((data) => data.rating));
   return (
     <>
       {
         <div className="unfilled">
           {UnfilledRatingIcon
-            ? [...Array(numberOfRating)].map(star => (
+            ? [...Array(numberOfRating)].map((star) => (
                 <span
+                  key=""
+                  // eslint-disable-next-line no-unneeded-ternary
                   className={ratingIconClassname ? ratingIconClassname : 'star'}
                   style={{
+                    // eslint-disable-next-line no-unneeded-ternary
                     color: progressUnfilledColor ? progressUnfilledColor : '#ebcf31'
                   }}>
                   {UnfilledRatingIcon}
@@ -45,8 +48,11 @@ const StarRating = (props: Props) => {
               ))
             : [...Array(numberOfRating)].map((star: data) => (
                 <span
+                  key=""
+                  // eslint-disable-next-line no-unneeded-ternary
                   className={ratingIconClassname ? ratingIconClassname : 'star'}
                   style={{
+                    // eslint-disable-next-line no-unneeded-ternary
                     color: progressFilledColor ? progressFilledColor : '#ebcf31'
                   }}>
                   <AiOutlineStar />

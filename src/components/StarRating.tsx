@@ -17,6 +17,7 @@ interface Props {
   UnfilledRatingIcon?: any;
 }
 
+// eslint-disable-next-line space-before-function-paren
 function StarRating(props: Props) {
   const {
     data,
@@ -27,20 +28,20 @@ function StarRating(props: Props) {
     FilledRatingIcon,
     UnfilledRatingIcon
   } = props;
-  const numberOfRating = Math.max(...data.map(data => data.rating));
+  const numberOfRating = Math.max(...data.map((data) => data.rating));
   let totalCount = 0;
   totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
   const per: any = {};
   let totalPercentage = 0;
-  let starPercentageRounded: any = ``;
+  let starPercentageRounded: any = '';
 
-  data.map(rating => {
+  data.forEach((rating) => {
     const perOfIndividual = rating.count / totalCount;
     const key = `${rating.rating}`;
     per[key] = perOfIndividual;
   });
 
-  for (let x in per) {
+  for (const x in per) {
     totalPercentage += Number(x) * per[x];
   }
   const percentage = (Number(totalPercentage.toFixed(2)) / numberOfRating) * 100;

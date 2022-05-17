@@ -15,6 +15,7 @@ interface Props {
   progressFilledColor?: string;
   progressUnfilledColor?: string;
 }
+// eslint-disable-next-line space-before-function-paren
 function Rating(props: Props) {
   const {
     data = [],
@@ -24,20 +25,20 @@ function Rating(props: Props) {
     progressFilledColor,
     progressUnfilledColor
   } = props;
-  const total = data.reduce(function(acc, obj) {
+  const total = data.reduce(function (acc, obj) {
     return acc + obj.value;
   }, 0);
 
   return (
     <div className={clsx('container', progressBarClassname)}>
-      {data.map(item => {
+      {data.map((item, index) => {
         const { value, rating } = item;
         const percent = (value * 100) / total || 0;
 
         return (
-          <div className="inner-container" onClick={onProgressClick}>
+          <div key={index + value} className="inner-container" onClick={onProgressClick}>
             <span className="subtext">
-              {rating} {substring ? substring : 'star'}
+              {rating} {substring || 'star'}
             </span>
             <ProgressBar
               rating={rating}

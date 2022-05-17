@@ -15,28 +15,31 @@ interface Props {
   width: string;
 }
 
-function FilledStarRating(props: Props) {
+// eslint-disable-next-line prettier/prettier
+function FilledStarRating (props: Props) {
   const { data, progressFilledColor, ratingIconClassname, FilledRatingIcon, width } = props;
-  const numberOfRating = Math.max(...data.map(data => data.rating));
+  const numberOfRating = Math.max(...data.map((data) => data.rating));
   return (
     <>
       {
-        <div className="filled" style={{ width: width }}>
+        <div className="filled" style={{ width }}>
           {FilledRatingIcon
             ? [...Array(numberOfRating)].map((star: data) => (
                 <span
-                  className={ratingIconClassname ? ratingIconClassname : 'star'}
+                  key=""
+                  className={ratingIconClassname || 'star'}
                   style={{
-                    color: progressFilledColor ? progressFilledColor : '#ebcf31'
+                    color: progressFilledColor || '#ebcf31'
                   }}>
                   {FilledRatingIcon}
                 </span>
               ))
             : [...Array(numberOfRating)].map((star: data) => (
                 <span
-                  className={ratingIconClassname ? ratingIconClassname : 'star'}
+                  key=""
+                  className={ratingIconClassname || 'star'}
                   style={{
-                    color: progressFilledColor ? progressFilledColor : '#ebcf31'
+                    color: progressFilledColor || '#ebcf31'
                   }}>
                   <AiFillStar />
                 </span>
