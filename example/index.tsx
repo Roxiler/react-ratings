@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { StarRating, Rating } from '../src';
+import { Ratings } from '../src';
 import { BsCircleFill, BsCircle } from 'react-icons/bs';
 
 const App = () => {
@@ -26,47 +26,23 @@ const App = () => {
       rating: 2
     }
   ];
-  const data1 = [
-    {
-      value: 5,
-      rating: 3
-    },
-    {
-      value: 6,
-      rating: 4
-    },
-    {
-      value: 2,
-      rating: 2
-    },
-    {
-      value: 2,
-      rating: 1
-    },
-    {
-      value: 3,
-      rating: 2
-    }
-  ];
 
   const showRatingHeader = true;
   const progressFilledColor = 'red';
   const progressUnfilledColor = 'red';
   const ratingIconClassname = 'custom';
-  const FilledRatingIcon = () => <BsCircleFill />;
-  const UnfilledRatingIcon = () => <BsCircle />;
+
   return (
     <div>
-      <StarRating
+      <Ratings
         data={data}
         showRatingHeader={showRatingHeader}
         progressFilledColor={progressFilledColor}
         progressUnfilledColor={progressUnfilledColor}
         ratingIconClassname={ratingIconClassname}
-        FilledRatingIcon={<FilledRatingIcon />}
-        UnfilledRatingIcon={<UnfilledRatingIcon />}
+        FilledRatingIcon={BsCircleFill}
+        UnfilledRatingIcon={BsCircle}
       />
-      <Rating data={data1} />
     </div>
   );
 };

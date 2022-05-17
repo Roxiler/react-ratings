@@ -1,4 +1,3 @@
-import StarRating from './components/StarRating';
-import Rating from './components/Rating';
+import Ratings from './components/Ratings/Ratings';
 
-export { StarRating, Rating };
+export { Ratings };
