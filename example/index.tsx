@@ -59,6 +59,7 @@ const App = () => {
     <div>
       <StarRating
         data={data}
+        width="10rem"
         showRatingHeader={showRatingHeader}
         progressFilledColor={progressFilledColor}
         progressUnfilledColor={progressUnfilledColor}
