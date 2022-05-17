@@ -22,7 +22,7 @@ function FilledStarRating(props: Props) {
   return (
     <div className="filled" style={{ width }}>
       {FilledRatingIcon
-        ? [...Array(numberOfRating)].map((star: data) => (
+        ? [...Array(numberOfRating)].map(() => (
             <span
               key=""
               className={ratingIconClassname || 'star'}
@@ -32,7 +32,7 @@ function FilledStarRating(props: Props) {
               {FilledRatingIcon}
             </span>
           ))
-        : [...Array(numberOfRating)].map((star: data) => (
+        : [...Array(numberOfRating)].map(() => (
             <span
               key=""
               className={ratingIconClassname || 'star'}

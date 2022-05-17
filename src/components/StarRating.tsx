@@ -29,8 +29,7 @@ function StarRating(props: Props) {
     UnfilledRatingIcon
   } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
-  let totalCount = 0;
-  totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
+  const totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
   const per: any = {};
   let totalPercentage = 0;
   let starPercentageRounded: any = '';

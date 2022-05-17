@@ -16,7 +16,6 @@ interface Props {
   FilledRatingIcon?: any;
   UnfilledRatingIcon?: any;
   width: string;
-  showRatingHeader: boolean;
 }
 
 const StarRating = (props: Props) => {
@@ -27,14 +26,13 @@ const StarRating = (props: Props) => {
     ratingIconClassname,
     FilledRatingIcon,
     UnfilledRatingIcon,
-    showRatingHeader,
     width
   } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
   return (
     <div className="unfilled">
       {UnfilledRatingIcon
-        ? [...Array(numberOfRating)].map((star) => (
+        ? [...Array(numberOfRating)].map(() => (
             <span
               key=""
               // eslint-disable-next-line no-unneeded-ternary
@@ -46,7 +44,7 @@ const StarRating = (props: Props) => {
               {UnfilledRatingIcon}
             </span>
           ))
-        : [...Array(numberOfRating)].map((star: data) => (
+        : [...Array(numberOfRating)].map(() => (
             <span
               key=""
               // eslint-disable-next-line no-unneeded-ternary
@@ -64,7 +62,6 @@ const StarRating = (props: Props) => {
         ratingIconClassname={ratingIconClassname}
         FilledRatingIcon={FilledRatingIcon}
         width={width}
-        showRatingHeader={showRatingHeader}
       />
     </div>
   );
