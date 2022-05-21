@@ -3,22 +3,8 @@ import { clsx } from '../../utilis/clsx';
 import StarRating from '../StarRating';
 import classes from './ratings.modules.css';
 import { BsCircleFill, BsCircle } from 'react-icons/bs';
-
-type Data = {
-  count: number;
-  rating: number;
-};
-
-type ContainerProps = {
-  containerClassname?: string;
-  data: Data[];
-  showRatingHeader: boolean;
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
-  ratingIconClassname?: string;
-  FilledRatingIcon?: React.ElementType;
-  UnfilledRatingIcon?: React.ElementType;
-};
+import { RatingsProps } from '../../Types/Ratings';
+import Rating from '../Rating';
 
 const Ratings = ({
   containerClassname = '',
@@ -29,7 +15,7 @@ const Ratings = ({
   ratingIconClassname = '',
   FilledRatingIcon = BsCircleFill,
   UnfilledRatingIcon = BsCircle
-}: ContainerProps) => {
+}: RatingsProps) => {
   return (
     <div className={clsx(classes.container, containerClassname)}>
       <StarRating
@@ -38,9 +24,10 @@ const Ratings = ({
         progressFilledColor={progressFilledColor}
         progressUnfilledColor={progressUnfilledColor}
         ratingIconClassname={ratingIconClassname}
-        FilledRatingIcon={<FilledRatingIcon />}
-        UnfilledRatingIcon={<UnfilledRatingIcon />}
+        FilledRatingIcon={FilledRatingIcon}
+        UnfilledRatingIcon={UnfilledRatingIcon}
       />
+      <Rating data={data} />
     </div>
   );
 };

@@ -41,7 +41,7 @@ const StarRating = (props: Props) => {
                 // eslint-disable-next-line no-unneeded-ternary
                 color: progressUnfilledColor ? progressUnfilledColor : '#ebcf31'
               }}>
-              {UnfilledRatingIcon}
+              <UnfilledRatingIcon />
             </span>
           ))
         : [...Array(numberOfRating)].map(() => (

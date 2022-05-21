@@ -1,22 +1,11 @@
 import React from 'react';
+import { ProgressBarProps } from '../../Types/ProgressBar';
 import { clsx } from '../../utilis/clsx';
 import ProgressBar from '../ProgressBar';
 import './styles.css';
 
-interface DataProps {
-  rating: number;
-  value: number;
-}
-interface Props {
-  data: Array<DataProps>;
-  progressBarClassname?: string;
-  substring?: string;
-  onProgressClick?: () => void;
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
-}
 // eslint-disable-next-line space-before-function-paren
-function Rating(props: Props) {
+function Rating(props: ProgressBarProps) {
   const {
     data = [],
     progressBarClassname = '',
@@ -25,30 +14,51 @@ function Rating(props: Props) {
     progressFilledColor,
     progressUnfilledColor
   } = props;
-  const total = data.reduce(function (acc, obj) {
-    return acc + obj.value;
+
+  interface InitialGroupedObj {
+    [key: number]: number;
+  }
+
+  const initialGroupedObj: InitialGroupedObj = {};
+
+  const groupedData = data.reduce((acc, obj) => {
+    if (acc[obj.rating]) {
+      return { ...acc, [obj.rating]: acc[obj.rating] + obj.count };
+    } else {
+      return { ...acc, [obj.rating]: obj.count };
+    }
+  }, initialGroupedObj);
+
+  const combinedData = Object.entries(groupedData).map(([key, value]) => ({
+    count: value,
+    rating: Number(key)
+  }));
+
+  const total = combinedData.reduce(function (acc, obj) {
+    return acc + obj.count;
   }, 0);
 
+  console.log({ combinedData }, total);
   return (
     <div className={clsx('container', progressBarClassname)}>
-      {data.map((item, index) => {
-        const { value, rating } = item;
-        const percent = (value * 100) / total || 0;
+      {combinedData.map((item, index) => {
+        const { count, rating } = item;
+        const percent = (count * 100) / total || 0;
 
         return (
-          <div key={index + value} className="inner-container" onClick={onProgressClick}>
+          <div key={index + count} className="inner-container" onClick={onProgressClick}>
             <span className="subtext">
               {rating} {substring || 'star'}
             </span>
             <ProgressBar
               rating={rating}
-              value={value}
+              value={count}
               total={total}
               percentage={percent}
               progressFilledColor={progressFilledColor}
               progressUnfilledColor={progressUnfilledColor}
             />
-            <span className="percent-text">{value} %</span>
+            <span className="percent-text">{percent.toFixed(2)} %</span>
           </div>
         );
       })}

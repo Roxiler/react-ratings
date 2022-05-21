@@ -6,24 +6,12 @@ import { BsCircleFill, BsCircle } from 'react-icons/bs';
 const App = () => {
   const data = [
     {
-      count: 5,
+      count: 6,
       rating: 3
     },
     {
       count: 6,
       rating: 4
-    },
-    {
-      count: 2,
-      rating: 2
-    },
-    {
-      count: 2,
-      rating: 1
-    },
-    {
-      count: 3,
-      rating: 2
     }
   ];
 

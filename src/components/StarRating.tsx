@@ -1,24 +1,10 @@
 import React from 'react';
 import UnfilledStartRating from './UnfilledStartRating';
 import '../styles/starRating.css';
-
-interface data {
-  count: number;
-  rating: number;
-}
-
-interface Props {
-  data: Array<data>;
-  showRatingHeader: boolean;
-  progressFilledColor: string;
-  progressUnfilledColor: string;
-  ratingIconClassname?: any;
-  FilledRatingIcon?: any;
-  UnfilledRatingIcon?: any;
-}
+import { RatingHeaderType } from '../Types/RatingHeader';
 
 // eslint-disable-next-line space-before-function-paren
-function StarRating(props: Props) {
+function StarRating(props: RatingHeaderType) {
   const {
     data,
     showRatingHeader,

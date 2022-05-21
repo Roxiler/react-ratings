@@ -29,7 +29,7 @@ function FilledStarRating(props: Props) {
               style={{
                 color: progressFilledColor || '#ebcf31'
               }}>
-              {FilledRatingIcon}
+              <FilledRatingIcon />
             </span>
           ))
         : [...Array(numberOfRating)].map(() => (
