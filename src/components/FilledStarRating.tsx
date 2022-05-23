@@ -2,6 +2,7 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import '../styles/filled.css';
 import { Data } from '../Types/Data';
+import { clsx } from '../utilis/clsx';
 
 interface Props {
   data: Data[];
@@ -13,7 +14,7 @@ interface Props {
 
 // eslint-disable-next-line
 function FilledStarRating(props: Props) {
-  const { data, progressFilledColor, ratingIconClassname, FilledRatingIcon, width } = props;
+  const { data, progressFilledColor, ratingIconClassname = '', FilledRatingIcon, width } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
   return (
     <div className="filled" style={{ width }}>
@@ -21,7 +22,7 @@ function FilledStarRating(props: Props) {
         ? [...Array(numberOfRating)].map((_, i) => (
             <span
               key={`unfilled-star custom icon ${i}`}
-              className={ratingIconClassname || 'star'}
+              className={clsx('star', ratingIconClassname)}
               style={{
                 color: progressFilledColor || '#ebcf31'
               }}>
@@ -31,7 +32,7 @@ function FilledStarRating(props: Props) {
         : [...Array(numberOfRating)].map((_, i) => (
             <span
               key={`unfilled-star default icon ${i}`}
-              className={ratingIconClassname || 'star'}
+              className={clsx('star', ratingIconClassname)}
               style={{
                 color: progressFilledColor || '#ebcf31'
               }}>

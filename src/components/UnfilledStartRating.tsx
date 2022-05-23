@@ -3,6 +3,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 import FilledStarRating from './FilledStarRating';
 import '../styles/Unfilled.css';
 import { Data } from '../Types/Data';
+import { clsx } from '../utilis/clsx';
 
 interface Props {
   data: Data[];
@@ -19,7 +20,7 @@ const StarRating = (props: Props) => {
     data,
     progressFilledColor,
     progressUnfilledColor,
-    ratingIconClassname,
+    ratingIconClassname = '',
     FilledRatingIcon,
     UnfilledRatingIcon,
     width
@@ -32,7 +33,7 @@ const StarRating = (props: Props) => {
             <span
               key={`unfilled-star custom icon ${i}`}
               // eslint-disable-next-line no-unneeded-ternary
-              className={ratingIconClassname ? ratingIconClassname : 'star'}
+              className={clsx('star', ratingIconClassname)}
               style={{
                 // eslint-disable-next-line no-unneeded-ternary
                 color: progressUnfilledColor ? progressUnfilledColor : '#ebcf31'
@@ -44,7 +45,7 @@ const StarRating = (props: Props) => {
             <span
               key={`unfilled-star default icon ${i}`}
               // eslint-disable-next-line no-unneeded-ternary
-              className={ratingIconClassname ? ratingIconClassname : 'star'}
+              className={clsx('star', ratingIconClassname)}
               style={{
                 // eslint-disable-next-line no-unneeded-ternary
                 color: progressFilledColor ? progressFilledColor : '#ebcf31'
