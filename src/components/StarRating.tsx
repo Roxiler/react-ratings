@@ -3,6 +3,10 @@ import UnfilledStartRating from './UnfilledStartRating';
 import '../styles/starRating.css';
 import { RatingHeaderType } from '../Types/RatingHeader';
 
+interface PercentageObj {
+  [key: string]: number;
+}
+
 // eslint-disable-next-line space-before-function-paren
 function StarRating(props: RatingHeaderType) {
   const {
@@ -16,9 +20,9 @@ function StarRating(props: RatingHeaderType) {
   } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
   const totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
-  const per: any = {};
+  const per: PercentageObj = {};
   let totalPercentage = 0;
-  let starPercentageRounded: any = '';
+  let starPercentageRounded = '';
 
   data.forEach((rating) => {
     const perOfIndividual = rating.count / totalCount;

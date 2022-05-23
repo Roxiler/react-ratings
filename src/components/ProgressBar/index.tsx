@@ -1,4 +1,5 @@
 import React from 'react';
+import { progressBarColors } from '../../Consts/colors';
 import './styles.css';
 
 interface Props {
@@ -18,7 +19,7 @@ function ProgressBar(props: Props) {
     <div
       className="progress-bar"
       style={{
-        backgroundColor: progressFilledColor || ''
+        backgroundColor: progressUnfilledColor || progressBarColors.unfilled
       }}
       role="progressbar"
       aria-valuenow={40}
@@ -28,7 +29,7 @@ function ProgressBar(props: Props) {
         className="filled-bar"
         style={{
           width: `${percentage}%`,
-          backgroundColor: progressUnfilledColor || ''
+          backgroundColor: progressFilledColor || progressBarColors.filled
         }}></div>
     </div>
   );

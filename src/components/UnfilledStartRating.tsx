@@ -2,19 +2,15 @@ import React from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import FilledStarRating from './FilledStarRating';
 import '../styles/Unfilled.css';
-
-interface data {
-  count: number;
-  rating: number;
-}
+import { Data } from '../Types/Data';
 
 interface Props {
-  data: Array<data>;
+  data: Data[];
   progressFilledColor?: string;
   progressUnfilledColor?: string;
-  ratingIconClassname?: any;
-  FilledRatingIcon?: any;
-  UnfilledRatingIcon?: any;
+  ratingIconClassname?: string;
+  FilledRatingIcon?: React.ElementType;
+  UnfilledRatingIcon?: React.ElementType;
   width: string;
 }
 
@@ -32,9 +28,9 @@ const StarRating = (props: Props) => {
   return (
     <div className="unfilled">
       {UnfilledRatingIcon
-        ? [...Array(numberOfRating)].map(() => (
+        ? [...Array(numberOfRating)].map((_, i) => (
             <span
-              key=""
+              key={`unfilled-star custom icon ${i}`}
               // eslint-disable-next-line no-unneeded-ternary
               className={ratingIconClassname ? ratingIconClassname : 'star'}
               style={{
@@ -44,9 +40,9 @@ const StarRating = (props: Props) => {
               <UnfilledRatingIcon />
             </span>
           ))
-        : [...Array(numberOfRating)].map(() => (
+        : [...Array(numberOfRating)].map((_, i) => (
             <span
-              key=""
+              key={`unfilled-star default icon ${i}`}
               // eslint-disable-next-line no-unneeded-ternary
               className={ratingIconClassname ? ratingIconClassname : 'star'}
               style={{

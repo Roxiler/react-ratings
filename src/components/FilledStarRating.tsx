@@ -1,17 +1,13 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import '../styles/filled.css';
-
-interface data {
-  count: number;
-  rating: number;
-}
+import { Data } from '../Types/Data';
 
 interface Props {
-  data: Array<data>;
+  data: Data[];
   progressFilledColor?: string;
-  ratingIconClassname?: any;
-  FilledRatingIcon?: any;
+  ratingIconClassname?: string;
+  FilledRatingIcon?: React.ElementType;
   width: string;
 }
 
@@ -22,9 +18,9 @@ function FilledStarRating(props: Props) {
   return (
     <div className="filled" style={{ width }}>
       {FilledRatingIcon
-        ? [...Array(numberOfRating)].map(() => (
+        ? [...Array(numberOfRating)].map((_, i) => (
             <span
-              key=""
+              key={`unfilled-star custom icon ${i}`}
               className={ratingIconClassname || 'star'}
               style={{
                 color: progressFilledColor || '#ebcf31'
@@ -32,9 +28,9 @@ function FilledStarRating(props: Props) {
               <FilledRatingIcon />
             </span>
           ))
-        : [...Array(numberOfRating)].map(() => (
+        : [...Array(numberOfRating)].map((_, i) => (
             <span
-              key=""
+              key={`unfilled-star default icon ${i}`}
               className={ratingIconClassname || 'star'}
               style={{
                 color: progressFilledColor || '#ebcf31'

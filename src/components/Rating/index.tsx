@@ -9,10 +9,11 @@ function Rating(props: ProgressBarProps) {
   const {
     data = [],
     progressBarClassname = '',
-    substring = '',
-    onProgressClick,
+    progressBarText = '',
+    onProgressClick = () => null,
     progressFilledColor,
-    progressUnfilledColor
+    progressUnfilledColor,
+    progressbarPercent = true
   } = props;
 
   interface InitialGroupedObj {
@@ -46,9 +47,12 @@ function Rating(props: ProgressBarProps) {
         const percent = (count * 100) / total || 0;
 
         return (
-          <div key={index + count} className="inner-container" onClick={onProgressClick}>
+          <div
+            key={index + count}
+            className="inner-container"
+            onClick={() => onProgressClick(item)}>
             <span className="subtext">
-              {rating} {substring || 'star'}
+              {rating} {progressBarText || 'star'}
             </span>
             <ProgressBar
               rating={rating}
@@ -58,7 +62,7 @@ function Rating(props: ProgressBarProps) {
               progressFilledColor={progressFilledColor}
               progressUnfilledColor={progressUnfilledColor}
             />
-            <span className="percent-text">{percent.toFixed(2)} %</span>
+            {progressbarPercent && <span className="percent-text">{percent.toFixed(2)} %</span>}
           </div>
         );
       })}

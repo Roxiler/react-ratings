@@ -16,8 +16,8 @@ const App = () => {
   ];
 
   const showRatingHeader = true;
-  const progressFilledColor = 'red';
-  const progressUnfilledColor = 'red';
+  const progressFilledColor = 'yellow';
+  const progressUnfilledColor = 'yellow';
   const ratingIconClassname = 'custom';
 
   return (

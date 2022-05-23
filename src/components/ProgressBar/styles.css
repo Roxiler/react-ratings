@@ -8,7 +8,7 @@
 
 .filled-bar {
   border-radius: 4px;
-  background-color: #ffa41c;
+  /* background-color: #ffa41c; */
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   height: 100%;
