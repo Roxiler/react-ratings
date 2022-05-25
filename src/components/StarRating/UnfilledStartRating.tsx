@@ -1,9 +1,10 @@
 import React from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import FilledStarRating from './FilledStarRating';
-import '../styles/Unfilled.css';
-import { Data } from '../Types/Data';
-import { clsx } from '../utilis/clsx';
+import '../../styles/Unfilled.css';
+import { Data } from '../../Types/Data';
+import { clsx } from '../../utilis/clsx';
+import { progressBarColors } from '../../Consts/colors';
 
 interface Props {
   data: Data[];
@@ -36,7 +37,7 @@ const StarRating = (props: Props) => {
               className={clsx('star', ratingIconClassname)}
               style={{
                 // eslint-disable-next-line no-unneeded-ternary
-                color: progressUnfilledColor ? progressUnfilledColor : '#ebcf31'
+                color: progressUnfilledColor || progressBarColors.unfilled
               }}>
               <UnfilledRatingIcon />
             </span>

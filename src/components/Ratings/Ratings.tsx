@@ -1,20 +1,23 @@
 import React from 'react';
 import { clsx } from '../../utilis/clsx';
-import StarRating from '../StarRating';
+import StarRating from '../StarRating/StarRating';
 import classes from './ratings.modules.css';
 import { BsCircleFill, BsCircle } from 'react-icons/bs';
 import { RatingsProps } from '../../Types/Ratings';
-import Rating from '../Rating';
+import RatingBars from '../RatingBars/RatingBars';
 
 const Ratings = ({
   containerClassname = '',
   data,
   showRatingHeader = false,
-  progressFilledColor = 'red',
-  progressUnfilledColor = 'red',
+  progressFilledColor = '',
+  progressUnfilledColor = '',
   ratingIconClassname = '',
   FilledRatingIcon = BsCircleFill,
-  UnfilledRatingIcon = BsCircle
+  UnfilledRatingIcon = BsCircle,
+  progressBarText = '',
+  progressBarClassname = '',
+  onProgressClick
 }: RatingsProps) => {
   return (
     <div className={clsx(classes.container, containerClassname)}>
@@ -27,7 +30,14 @@ const Ratings = ({
         FilledRatingIcon={FilledRatingIcon}
         UnfilledRatingIcon={UnfilledRatingIcon}
       />
-      <Rating data={data} />
+      <RatingBars
+        data={data}
+        progressFilledColor={progressFilledColor}
+        progressUnfilledColor={progressUnfilledColor}
+        progressBarText={progressBarText}
+        progressBarClassname={progressBarClassname}
+        onProgressClick={onProgressClick}
+      />
     </div>
   );
 };

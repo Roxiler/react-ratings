@@ -1,6 +1,6 @@
 import React from 'react';
 import { progressBarColors } from '../../Consts/colors';
-import './styles.css';
+import './progress.modules.css';
 
 interface Props {
   rating: number;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 // eslint-disable-next-line space-before-function-paren
-function ProgressBar(props: Props) {
+function Progress(props: Props) {
   const { percentage, progressFilledColor, progressUnfilledColor } = props;
 
   return (
@@ -35,4 +35,4 @@ function ProgressBar(props: Props) {
   );
 }
 
-export default ProgressBar;
+export default Progress;
