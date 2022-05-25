@@ -1,7 +1,7 @@
 import React from 'react';
 import UnfilledStartRating from './UnfilledStartRating';
-import '../styles/starRating.css';
-import { RatingHeaderType } from '../Types/RatingHeader';
+import '../../styles/starRating.css';
+import { RatingHeaderType } from '../../Types/RatingHeader';
 
 interface PercentageObj {
   [key: string]: number;

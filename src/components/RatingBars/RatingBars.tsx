@@ -1,15 +1,15 @@
 import React from 'react';
 import { ProgressBarProps } from '../../Types/ProgressBar';
 import { clsx } from '../../utilis/clsx';
-import ProgressBar from '../ProgressBar';
-import './styles.css';
+import Progress from '../Progress/Progress';
+import './ratingBars.modules.css';
 
 // eslint-disable-next-line space-before-function-paren
-function Rating(props: ProgressBarProps) {
+function RatingBars(props: ProgressBarProps) {
   const {
     data = [],
     progressBarClassname = '',
-    progressBarText = '',
+    progressBarText = 'star',
     onProgressClick = () => null,
     progressFilledColor,
     progressUnfilledColor,
@@ -41,7 +41,7 @@ function Rating(props: ProgressBarProps) {
 
   console.log({ combinedData }, total);
   return (
-    <div className={clsx('container', progressBarClassname)}>
+    <div className="container">
       {combinedData.map((item, index) => {
         const { count, rating } = item;
         const percent = (count * 100) / total || 0;
@@ -49,12 +49,17 @@ function Rating(props: ProgressBarProps) {
         return (
           <div
             key={index + count}
-            className="inner-container"
+            className={clsx('inner-container', progressBarClassname)}
             onClick={() => onProgressClick(item)}>
-            <span className="subtext">
-              {rating} {progressBarText || 'star'}
-            </span>
-            <ProgressBar
+            {progressBarText && typeof progressBarText !== 'string' ? (
+              progressBarText
+            ) : (
+              <span className="subtext">
+                {rating} {progressBarText}
+              </span>
+            )}
+
+            <Progress
               rating={rating}
               value={count}
               total={total}
@@ -62,7 +67,7 @@ function Rating(props: ProgressBarProps) {
               progressFilledColor={progressFilledColor}
               progressUnfilledColor={progressUnfilledColor}
             />
-            {progressbarPercent && <span className="percent-text">{percent.toFixed(2)} %</span>}
+            {progressbarPercent && <span className="percent-text">{Math.ceil(percent)} %</span>}
           </div>
         );
       })}
@@ -70,4 +75,4 @@ function Rating(props: ProgressBarProps) {
   );
 }
 
-export default Rating;
+export default RatingBars;

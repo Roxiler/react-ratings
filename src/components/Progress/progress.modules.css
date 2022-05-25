@@ -1,0 +1,11 @@
+.progress-bar {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  border-radius: 4px;
+}
+
+.filled-bar {
+  border-radius: 4px 0 0 4px;
+  height: 100%;
+}
