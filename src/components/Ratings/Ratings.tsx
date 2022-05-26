@@ -2,7 +2,7 @@ import React from 'react';
 import { clsx } from '../../utilis/clsx';
 import StarRating from '../StarRating/StarRating';
 import classes from './ratings.modules.css';
-import { BsCircleFill, BsCircle } from 'react-icons/bs';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { RatingsProps } from '../../Types/Ratings';
 import RatingBars from '../RatingBars/RatingBars';
 
@@ -13,8 +13,9 @@ const Ratings = ({
   progressFilledColor = '',
   progressUnfilledColor = '',
   ratingIconClassname = '',
-  FilledRatingIcon = BsCircleFill,
-  UnfilledRatingIcon = BsCircle,
+  ratingHeaderClassname = '',
+  FilledRatingIcon = AiFillStar,
+  UnfilledRatingIcon = AiOutlineStar,
   progressBarText = '',
   progressBarClassname = '',
   onProgressClick
@@ -27,6 +28,7 @@ const Ratings = ({
         progressFilledColor={progressFilledColor}
         progressUnfilledColor={progressUnfilledColor}
         ratingIconClassname={ratingIconClassname}
+        ratingHeaderClassname={ratingHeaderClassname}
         FilledRatingIcon={FilledRatingIcon}
         UnfilledRatingIcon={UnfilledRatingIcon}
       />

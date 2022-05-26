@@ -1,5 +1,5 @@
 import React from 'react';
-import UnfilledStartRating from './UnfilledStartRating';
+import UnfilledStartRating from './UnfilledStarRating';
 import '../../styles/starRating.css';
 import { RatingHeaderType } from '../../Types/RatingHeader';
 
@@ -15,6 +15,7 @@ function StarRating(props: RatingHeaderType) {
     progressFilledColor,
     progressUnfilledColor,
     ratingIconClassname,
+    ratingHeaderClassname,
     FilledRatingIcon,
     UnfilledRatingIcon
   } = props;
@@ -48,7 +49,7 @@ function StarRating(props: RatingHeaderType) {
             UnfilledRatingIcon={UnfilledRatingIcon}
             width={starPercentageRounded}
           />
-          <p className="rating">
+          <p className={ratingHeaderClassname || 'rating'}>
             {totalPercentage.toFixed(2)} out of {numberOfRating}
           </p>
         </div>

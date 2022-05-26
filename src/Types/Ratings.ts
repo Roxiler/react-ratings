@@ -1,7 +1,15 @@
+import React from 'react';
+import { Data } from './Data';
 import { ProgressBarProps } from './ProgressBar';
-import { RatingHeaderType } from './RatingHeader';
 
 export type RatingsProps = {
   containerClassname?: string;
-} & RatingHeaderType &
-  ProgressBarProps;
+  data: Data[];
+  showRatingHeader: boolean;
+  progressFilledColor?: string;
+  progressUnfilledColor?: string;
+  ratingIconClassname?: string;
+  ratingHeaderClassname?: string;
+  FilledRatingIcon?: React.ElementType;
+  UnfilledRatingIcon?: React.ElementType;
+} & ProgressBarProps;

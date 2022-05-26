@@ -1,12 +1,7 @@
 .starRating {
   display: flex;
-  align-items: center;
-  justify-content:center;
 }
 .starRating .rating {
-  font-size: 2rem;
-  color: black;
-  margin-left: 2rem;
-  margin-top: 1.2rem;
+  font-size: 14px;
+  white-space: nowrap;
 }
-
