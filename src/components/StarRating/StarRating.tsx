@@ -2,6 +2,7 @@ import React from 'react';
 import UnfilledStartRating from './UnfilledStarRating';
 import './starRating.css';
 import { RatingHeaderType } from '../../Types/RatingHeader';
+import { clsx } from '../../utilis/clsx';
 
 interface PercentageObj {
   [key: string]: number;
@@ -15,7 +16,8 @@ function StarRating(props: RatingHeaderType) {
     progressFilledColor,
     progressUnfilledColor,
     ratingIconClassname,
-    ratingHeaderClassname,
+    ratingHeaderClassname = '',
+    ratingHeaderTextClassname = '',
     FilledRatingIcon,
     UnfilledRatingIcon
   } = props;
@@ -39,7 +41,7 @@ function StarRating(props: RatingHeaderType) {
   return (
     <>
       {showRatingHeader && (
-        <div className="starRating">
+        <div className={clsx('starRating', ratingHeaderClassname)}>
           <UnfilledStartRating
             data={data}
             progressFilledColor={progressFilledColor}
@@ -49,7 +51,7 @@ function StarRating(props: RatingHeaderType) {
             UnfilledRatingIcon={UnfilledRatingIcon}
             width={starPercentageRounded}
           />
-          <p className={ratingHeaderClassname || 'rating'}>
+          <p className={clsx('rating', ratingHeaderTextClassname)}>
             {totalPercentage.toFixed(2)} out of {numberOfRating}
           </p>
         </div>

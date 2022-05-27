@@ -18,6 +18,7 @@ const Ratings = ({
   UnfilledRatingIcon = <AiOutlineStar />,
   progressBarText = '',
   progressBarClassname = '',
+  ratingHeaderTextClassname = '',
   onProgressClick
 }: RatingsProps) => {
   return (
@@ -31,6 +32,7 @@ const Ratings = ({
         ratingHeaderClassname={ratingHeaderClassname}
         FilledRatingIcon={FilledRatingIcon}
         UnfilledRatingIcon={UnfilledRatingIcon}
+        ratingHeaderTextClassname={ratingHeaderTextClassname}
       />
       <RatingBars
         data={data}

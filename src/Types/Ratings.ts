@@ -12,4 +12,5 @@ export type RatingsProps = {
   ratingHeaderClassname?: string;
   FilledRatingIcon?: React.ReactElement;
   UnfilledRatingIcon?: React.ReactElement;
+  ratingHeaderTextClassname?: string;
 } & ProgressBarProps;

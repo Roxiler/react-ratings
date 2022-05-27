@@ -10,4 +10,5 @@ export type RatingHeaderType = {
   ratingHeaderClassname?: string;
   FilledRatingIcon: React.ReactElement;
   UnfilledRatingIcon: React.ReactElement;
+  ratingHeaderTextClassname?: string;
 };
