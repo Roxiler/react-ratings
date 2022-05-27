@@ -8,6 +8,6 @@ export type RatingHeaderType = {
   progressUnfilledColor?: string;
   ratingIconClassname?: string;
   ratingHeaderClassname?: string;
-  FilledRatingIcon: React.ElementType;
-  UnfilledRatingIcon: React.ElementType;
+  FilledRatingIcon: React.ReactElement;
+  UnfilledRatingIcon: React.ReactElement;
 };

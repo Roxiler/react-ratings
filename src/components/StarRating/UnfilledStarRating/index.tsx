@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from 'react';
 import FilledStarRating from '../FilledStarRating';
-import '../../../styles/Unfilled.css';
+import './Unfilled.css';
 import { Data } from '../../../Types/Data';
 import { clsx } from '../../../utilis/clsx';
 import { starColors } from '../../../Consts/colors';
@@ -11,8 +11,8 @@ interface Props {
   progressFilledColor?: string;
   progressUnfilledColor?: string;
   ratingIconClassname?: string;
-  FilledRatingIcon: React.ElementType;
-  UnfilledRatingIcon: React.ElementType;
+  FilledRatingIcon: React.ReactElement;
+  UnfilledRatingIcon: React.ReactElement;
   width: string;
 }
 
@@ -38,7 +38,7 @@ const StarRating = (props: Props) => {
             // eslint-disable-next-line no-unneeded-ternary
             color: progressUnfilledColor || starColors.unfilled
           }}>
-          {progressUnfilledColor ? <FilledRatingIcon /> : <UnfilledRatingIcon />}
+          {progressUnfilledColor ? FilledRatingIcon : UnfilledRatingIcon}
         </span>
       ))}
       <FilledStarRating

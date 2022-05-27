@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BsCircle, BsCircleFill } from 'react-icons/bs';
+// import { BsCircle, BsCircleFill } from 'react-icons/bs';
 import { Ratings } from '../src';
 import './styles.css';
 const App = () => {
@@ -16,16 +16,12 @@ const App = () => {
     {
       count: 4,
       rating: 2
-    },
-    {
-      count: 10,
-      rating: 1
     }
   ];
 
   const showRatingHeader = true;
-  const progressFilledColor = '#656bdf';
-  const progressUnfilledColor = '#243565';
+  // const progressFilledColor = '#656bdf';
+  // const progressUnfilledColor = '#243565';
   const ratingIconClassname = 'custom';
   const ratingHeaderClassname = 'header';
 
@@ -34,12 +30,12 @@ const App = () => {
       <Ratings
         data={data}
         showRatingHeader={showRatingHeader}
-        progressFilledColor={progressFilledColor}
-        progressUnfilledColor={progressUnfilledColor}
+        // progressFilledColor={progressFilledColor}
+        // progressUnfilledColor={progressUnfilledColor}
         ratingIconClassname={ratingIconClassname}
         ratingHeaderClassname={ratingHeaderClassname}
-        FilledRatingIcon={BsCircleFill}
-        UnfilledRatingIcon={BsCircle}
+        // FilledRatingIcon={BsCircleFill}
+        // UnfilledRatingIcon={BsCircle}
         progressBarText={'stars'}
         progressBarClassname="progress-container"
         onProgressClick={() => {

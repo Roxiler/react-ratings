@@ -14,8 +14,8 @@ const Ratings = ({
   progressUnfilledColor = '',
   ratingIconClassname = '',
   ratingHeaderClassname = '',
-  FilledRatingIcon = AiFillStar,
-  UnfilledRatingIcon = AiOutlineStar,
+  FilledRatingIcon = <AiFillStar />,
+  UnfilledRatingIcon = <AiOutlineStar />,
   progressBarText = '',
   progressBarClassname = '',
   onProgressClick

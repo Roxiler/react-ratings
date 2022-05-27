@@ -1,6 +1,6 @@
 import React from 'react';
 import UnfilledStartRating from './UnfilledStarRating';
-import '../../styles/starRating.css';
+import './starRating.css';
 import { RatingHeaderType } from '../../Types/RatingHeader';
 
 interface PercentageObj {

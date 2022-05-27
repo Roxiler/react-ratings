@@ -1,5 +1,6 @@
 .starRating {
   display: flex;
+  justify-content: center;
 }
 .starRating .rating {
   font-size: 14px;

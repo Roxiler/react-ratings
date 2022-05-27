@@ -4,7 +4,7 @@ import { Data } from './Data';
 export type ProgressBarProps = {
   data: Data[];
   progressBarClassname?: string;
-  progressBarText?: React.ElementType | string;
+  progressBarText?: React.ReactElement | string;
   onProgressClick?: (data: Data) => void;
   progressFilledColor?: string;
   progressUnfilledColor?: string;

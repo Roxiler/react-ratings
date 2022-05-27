@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/filled.css';
+import './filled.css';
 import { Data } from '../../../Types/Data';
 import { clsx } from '../../../utilis/clsx';
 import { starColors } from '../../../Consts/colors';
@@ -8,7 +8,7 @@ interface Props {
   data: Data[];
   progressFilledColor?: string;
   ratingIconClassname?: string;
-  FilledRatingIcon: React.ElementType;
+  FilledRatingIcon: React.ReactElement;
   width: string;
 }
 
@@ -31,7 +31,7 @@ function FilledStarRating(props: Props) {
           style={{
             color: progressFilledColor || starColors.filled
           }}>
-          <FilledRatingIcon />
+          {FilledRatingIcon}
         </span>
       ))}
     </div>

@@ -30,7 +30,18 @@ function RatingBars(props: ProgressBarProps) {
     }
   }, initialGroupedObj);
 
-  const combinedData = Object.entries(groupedData).map(([key, value]) => ({
+  const maximumRating = Math.max(...data.map((data) => data.rating));
+  const possibleRatings = [...Array(maximumRating)].map((_, i) => i + 1);
+
+  const addMissedRating: InitialGroupedObj = possibleRatings.reduce((acc, rating) => {
+    if (groupedData[rating]) {
+      return { ...acc, [rating]: groupedData[rating] };
+    } else {
+      return { ...acc, [rating]: 0 };
+    }
+  }, {});
+
+  const combinedData = Object.entries(addMissedRating).map(([key, value]) => ({
     count: value,
     rating: Number(key)
   }));
@@ -39,7 +50,6 @@ function RatingBars(props: ProgressBarProps) {
     return acc + obj.count;
   }, 0);
 
-  console.log({ combinedData }, total);
   return (
     <div className="container">
       {combinedData.map((item, index) => {
@@ -55,7 +65,7 @@ function RatingBars(props: ProgressBarProps) {
               progressBarText
             ) : (
               <span className="subtext">
-                {rating} {progressBarText}
+                {rating}&nbsp;{progressBarText}
               </span>
             )}
 
