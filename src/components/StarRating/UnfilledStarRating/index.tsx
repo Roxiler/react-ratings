@@ -37,7 +37,8 @@ const StarRating = (props: Props) => {
           style={{
             // eslint-disable-next-line no-unneeded-ternary
             color: progressUnfilledColor || starColors.unfilled
-          }}>
+          }}
+        >
           {progressUnfilledColor ? FilledRatingIcon : UnfilledRatingIcon}
         </span>
       ))}

@@ -60,7 +60,8 @@ function RatingBars(props: ProgressBarProps) {
           <div
             key={index + count}
             className={clsx('inner-container', progressBarClassname)}
-            onClick={() => onProgressClick(item)}>
+            onClick={() => onProgressClick(item)}
+          >
             {progressBarText && typeof progressBarText !== 'string' ? (
               progressBarText
             ) : (

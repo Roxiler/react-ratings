@@ -30,7 +30,8 @@ function FilledStarRating(props: Props) {
           className={clsx('star', ratingIconClassname)}
           style={{
             color: progressFilledColor || starColors.filled
-          }}>
+          }}
+        >
           {FilledRatingIcon}
         </span>
       ))}

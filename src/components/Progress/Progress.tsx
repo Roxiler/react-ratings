@@ -24,13 +24,15 @@ function Progress(props: Props) {
       role="progressbar"
       aria-valuenow={40}
       aria-valuemax={20}
-      aria-valuemin={0}>
+      aria-valuemin={0}
+    >
       <div
         className="filled-bar"
         style={{
           width: `${percentage}%`,
           backgroundColor: progressFilledColor || progressBarColors.filled
-        }}></div>
+        }}
+      ></div>
     </div>
   );
 }
