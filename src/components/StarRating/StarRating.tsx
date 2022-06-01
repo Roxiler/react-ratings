@@ -25,7 +25,7 @@ function StarRating(props: RatingHeaderType) {
   const totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
   const per: PercentageObj = {};
   let totalPercentage = 0;
-  let starPercentageRounded = ''
+  starPercentageRounded = '';
 
   data.forEach((rating) => {
     const perOfIndividual = rating.count / totalCount;
