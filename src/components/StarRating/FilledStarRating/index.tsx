@@ -1,5 +1,5 @@
 import React from 'react';
-import './filled.css';
+import classes from './filled.module.css';
 import { Data } from '../../../Types/Data';
 import { clsx } from '../../../utilis/clsx';
 import { starColors } from '../../../Consts/colors';
@@ -22,12 +22,13 @@ function FilledStarRating(props: Props) {
     width
   } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
+
   return (
-    <div className="filled" style={{ width }}>
+    <div className={classes.filled} style={{ width }}>
       {[...Array(numberOfRating)].map((_, i) => (
         <span
           key={`unfilled-star custom icon ${i}`}
-          className={clsx('star', ratingIconClassname)}
+          className={clsx(classes.star, ratingIconClassname)}
           style={{
             color: progressFilledColor || starColors.filled
           }}>
