@@ -1,0 +1,18 @@
+.filled {
+  font-size: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  /* overflow: hidden; */
+}
+span {
+  font-size: 3rem;
+  /* overflow: hidden; */
+}
+.star {
+  font-size: 3rem;
+  /* overflow: hidden; */
+}

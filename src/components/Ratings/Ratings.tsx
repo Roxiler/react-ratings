@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from '../../utilis/clsx';
 import StarRating from '../StarRating/StarRating';
-import classes from './ratings.modules.css';
+import classes from './ratings.module.css';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { RatingsProps } from '../../Types/Ratings';
 import RatingBars from '../RatingBars/RatingBars';

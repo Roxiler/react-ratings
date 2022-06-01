@@ -1,8 +1,8 @@
 import React from 'react';
 import { ProgressBarProps } from '../../Types/ProgressBar';
 import { clsx } from '../../utilis/clsx';
-import Progress from '../Progress/Progress';
-import './ratingBars.modules.css';
+import Progress from './Progress/Progress';
+import classes from './ratingBars.module.css';
 
 // eslint-disable-next-line space-before-function-paren
 function RatingBars(props: ProgressBarProps) {
@@ -51,7 +51,7 @@ function RatingBars(props: ProgressBarProps) {
   }, 0);
 
   return (
-    <div className="container">
+    <div className={classes.container}>
       {combinedData.map((item, index) => {
         const { count, rating } = item;
         const percent = (count * 100) / total || 0;
@@ -59,13 +59,13 @@ function RatingBars(props: ProgressBarProps) {
         return (
           <div
             key={index + count}
-            className={clsx('inner-container', progressBarClassname)}
+            className={clsx(classes.inner_container, progressBarClassname)}
             onClick={() => onProgressClick(item)}
           >
             {progressBarText && typeof progressBarText !== 'string' ? (
               progressBarText
             ) : (
-              <span className="subtext">
+              <span className={classes.subtext}>
                 {rating}&nbsp;{progressBarText}
               </span>
             )}
@@ -78,7 +78,9 @@ function RatingBars(props: ProgressBarProps) {
               progressFilledColor={progressFilledColor}
               progressUnfilledColor={progressUnfilledColor}
             />
-            {progressbarPercent && <span className="percent-text">{Math.ceil(percent)} %</span>}
+            {progressbarPercent && (
+              <span className={classes.percent_text}>{Math.ceil(percent)} %</span>
+            )}
           </div>
         );
       })}

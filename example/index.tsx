@@ -38,8 +38,8 @@ const App = () => {
         // UnfilledRatingIcon={BsCircle}
         progressBarText={'stars'}
         progressBarClassname="progress-container"
-        onProgressClick={() => {
-          console.log('test');
+        onProgressClick={(item) => {
+          console.log('test', item);
         }}
       />
     </div>
