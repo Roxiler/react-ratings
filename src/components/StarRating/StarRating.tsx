@@ -1,6 +1,6 @@
 import React from 'react';
 import UnfilledStartRating from './UnfilledStarRating';
-import classes from './StarRating.module.css';
+import classes from './starRating.module.css';
 import { RatingHeaderType } from '../../Types/RatingHeader';
 import { clsx } from '../../utilis/clsx';
 
