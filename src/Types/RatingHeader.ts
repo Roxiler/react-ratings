@@ -3,11 +3,12 @@ import { Data } from './Data';
 
 export type RatingHeaderType = {
   data: Data[];
-  showRatingHeader: boolean;
+  showRatingHeader?: boolean;
   progressFilledColor?: string;
   progressUnfilledColor?: string;
   ratingIconClassname?: string;
   ratingHeaderClassname?: string;
   FilledRatingIcon: React.ReactElement;
   UnfilledRatingIcon: React.ReactElement;
+  customRatingHeader?: (percent: number) => React.ReactElement;
 };

@@ -9,7 +9,7 @@ import RatingBars from '../RatingBars/RatingBars';
 const Ratings = ({
   containerClassname = '',
   data,
-  showRatingHeader = false,
+  showRatingHeader = true,
   progressFilledColor = '',
   progressUnfilledColor = '',
   ratingIconClassname = '',
@@ -18,7 +18,8 @@ const Ratings = ({
   UnfilledRatingIcon = <AiOutlineStar />,
   progressBarText = '',
   progressBarClassname = '',
-  onProgressClick
+  onProgressClick,
+  customRatingHeader
 }: RatingsProps) => {
   return (
     <div className={clsx(classes.container, containerClassname)}>
@@ -31,6 +32,7 @@ const Ratings = ({
         ratingHeaderClassname={ratingHeaderClassname}
         FilledRatingIcon={FilledRatingIcon}
         UnfilledRatingIcon={UnfilledRatingIcon}
+        customRatingHeader={customRatingHeader}
       />
       <RatingBars
         data={data}

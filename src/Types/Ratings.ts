@@ -5,11 +5,12 @@ import { ProgressBarProps } from './ProgressBar';
 export type RatingsProps = {
   containerClassname?: string;
   data: Data[];
-  showRatingHeader: boolean;
+  showRatingHeader?: boolean;
   progressFilledColor?: string;
   progressUnfilledColor?: string;
   ratingIconClassname?: string;
   ratingHeaderClassname?: string;
   FilledRatingIcon?: React.ReactElement;
   UnfilledRatingIcon?: React.ReactElement;
+  customRatingHeader?: (percent: number) => React.ReactElement;
 } & ProgressBarProps;
