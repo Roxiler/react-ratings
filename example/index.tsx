@@ -24,6 +24,7 @@ const App = () => {
   const progressUnfilledColor = '#243565';
   const ratingIconClassname = 'custom';
   const ratingHeaderClassname = 'header';
+  const customRatingHeader = (percentage: number) => <p>hello {percentage}</p>;
 
   return (
     <div style={{ width: '500px', padding: '10px' }}>
@@ -41,6 +42,7 @@ const App = () => {
         onProgressClick={(item) => {
           console.log('test', item);
         }}
+        customRatingHeader={customRatingHeader}
       />
     </div>
   );
