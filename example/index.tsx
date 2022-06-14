@@ -25,21 +25,27 @@ const App = () => {
   const ratingIconClassname = 'custom';
   const ratingHeaderClassname = 'header';
 
+  const ProgressPerecent = (percent) => <div>{Math.ceil(percent)} %% </div>;
+  const ProgressBarText = (data) => <div>{`${data.rating} rating`} </div>;
+
   return (
     <div style={{ width: '500px', padding: '10px' }}>
       <Ratings
         data={data}
         showRatingHeader={showRatingHeader}
-        progressFilledColor={progressFilledColor}
-        progressUnfilledColor={progressUnfilledColor}
-        ratingIconClassname={ratingIconClassname}
-        ratingHeaderClassname={ratingHeaderClassname}
-        FilledRatingIcon={<BsCircleFill />}
-        UnfilledRatingIcon={<BsCircle />}
-        progressBarText={'stars'}
-        progressBarClassname="progress-container"
-        onProgressClick={(item) => {
-          console.log('test', item);
+        options={{
+          // progressPercentage: ProgressPerecent
+          progressBarText: ProgressBarText,
+          classname: 'progress-container',
+          filledColor: progressFilledColor,
+          unfilledColor: progressUnfilledColor,
+          onClick: (item) => {
+            console.log('test', item);
+          },
+          ratingIconClassname: ratingIconClassname,
+          ratingHeaderClassname: ratingHeaderClassname
+          // FilledRatingIcon: <BsCircleFill />,
+          // UnfilledRatingIcon: <BsCircle />
         }}
       />
     </div>

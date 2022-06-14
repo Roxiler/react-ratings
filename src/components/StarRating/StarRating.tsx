@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import UnfilledStartRating from './UnfilledStarRating';
 import classes from './starRating.module.css';
 import { RatingHeaderType } from '../../Types/RatingHeader';
@@ -10,16 +11,15 @@ interface PercentageObj {
 
 // eslint-disable-next-line space-before-function-paren
 function StarRating(props: RatingHeaderType) {
+  const { data, showRatingHeader, options = {} } = props;
   const {
-    data,
-    showRatingHeader,
-    progressFilledColor,
-    progressUnfilledColor,
+    filledColor,
+    unfilledColor,
     ratingIconClassname,
     ratingHeaderClassname = '',
-    FilledRatingIcon,
-    UnfilledRatingIcon
-  } = props;
+    FilledRatingIcon = <AiFillStar />,
+    UnfilledRatingIcon = <AiOutlineStar />
+  } = options;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
   const totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
   const per: PercentageObj = {};
@@ -43,8 +43,8 @@ function StarRating(props: RatingHeaderType) {
         <div className={classes.starRating}>
           <UnfilledStartRating
             data={data}
-            progressFilledColor={progressFilledColor}
-            progressUnfilledColor={progressUnfilledColor}
+            filledColor={filledColor}
+            unfilledColor={unfilledColor}
             ratingIconClassname={ratingIconClassname}
             FilledRatingIcon={FilledRatingIcon}
             UnfilledRatingIcon={UnfilledRatingIcon}

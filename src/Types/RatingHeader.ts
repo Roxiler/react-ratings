@@ -1,13 +1,8 @@
-import React from 'react';
 import { Data } from './Data';
+import { StarOptions } from './Options';
 
 export type RatingHeaderType = {
   data: Data[];
   showRatingHeader: boolean;
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
-  ratingIconClassname?: string;
-  ratingHeaderClassname?: string;
-  FilledRatingIcon: React.ReactElement;
-  UnfilledRatingIcon: React.ReactElement;
+  options?: StarOptions;
 };

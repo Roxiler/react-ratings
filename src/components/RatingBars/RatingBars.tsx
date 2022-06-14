@@ -6,15 +6,8 @@ import classes from './ratingBars.module.css';
 
 // eslint-disable-next-line space-before-function-paren
 function RatingBars(props: ProgressBarProps) {
-  const {
-    data = [],
-    progressBarClassname = '',
-    progressBarText = 'star',
-    onProgressClick = () => null,
-    progressFilledColor,
-    progressUnfilledColor,
-    progressbarPercent = true
-  } = props;
+  const { data = [], options = {} } = props;
+  const { classname = '', filledColor, unfilledColor, onClick } = options;
 
   interface InitialGroupedObj {
     [key: number]: number;
@@ -59,13 +52,13 @@ function RatingBars(props: ProgressBarProps) {
         return (
           <div
             key={index + count}
-            className={clsx(classes.inner_container, progressBarClassname)}
-            onClick={() => onProgressClick(item)}>
-            {progressBarText && typeof progressBarText !== 'string' ? (
-              progressBarText
+            className={clsx(classes.inner_container, classname)}
+            onClick={() => onClick && onClick(item)}>
+            {options?.progressBarText && typeof options?.progressBarText !== 'string' ? (
+              options.progressBarText(item)
             ) : (
               <span className={classes.subtext}>
-                {rating}&nbsp;{progressBarText}
+                {rating}&nbsp;{options?.progressBarText}
               </span>
             )}
 
@@ -74,12 +67,17 @@ function RatingBars(props: ProgressBarProps) {
               value={count}
               total={total}
               percentage={percent}
-              progressFilledColor={progressFilledColor}
-              progressUnfilledColor={progressUnfilledColor}
+              filledColor={filledColor}
+              unfilledColor={unfilledColor}
             />
-            {progressbarPercent && (
-              <span className={classes.percent_text}>{Math.ceil(percent)} %</span>
-            )}
+
+            <div>
+              {!options?.progressPercentage ? (
+                <span className={classes.percent_text}>{Math.ceil(percent)} %</span>
+              ) : (
+                <React.Fragment>{options.progressPercentage(percent, data)} </React.Fragment>
+              )}
+            </div>
           </div>
         );
       })}

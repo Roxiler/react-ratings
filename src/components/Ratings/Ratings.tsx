@@ -1,44 +1,34 @@
 import React from 'react';
-import { clsx } from '../../utilis/clsx';
 import StarRating from '../StarRating/StarRating';
 import classes from './ratings.module.css';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { RatingsProps } from '../../Types/Ratings';
 import RatingBars from '../RatingBars/RatingBars';
 
-const Ratings = ({
-  containerClassname = '',
-  data,
-  showRatingHeader = false,
-  progressFilledColor = '',
-  progressUnfilledColor = '',
-  ratingIconClassname = '',
-  ratingHeaderClassname = '',
-  FilledRatingIcon = <AiFillStar />,
-  UnfilledRatingIcon = <AiOutlineStar />,
-  progressBarText = '',
-  progressBarClassname = '',
-  onProgressClick
-}: RatingsProps) => {
+const Ratings = ({ data, showRatingHeader = false, options }: RatingsProps) => {
   return (
-    <div className={clsx(classes.container, containerClassname)}>
+    <div className={classes.container}>
       <StarRating
         data={data}
         showRatingHeader={showRatingHeader}
-        progressFilledColor={progressFilledColor}
-        progressUnfilledColor={progressUnfilledColor}
-        ratingIconClassname={ratingIconClassname}
-        ratingHeaderClassname={ratingHeaderClassname}
-        FilledRatingIcon={FilledRatingIcon}
-        UnfilledRatingIcon={UnfilledRatingIcon}
+        options={{
+          filledColor: options?.filledColor,
+          unfilledColor: options?.unfilledColor,
+          ratingIconClassname: options?.ratingHeaderClassname,
+          ratingHeaderClassname: options?.ratingHeaderClassname,
+          FilledRatingIcon: options?.FilledRatingIcon,
+          UnfilledRatingIcon: options?.UnfilledRatingIcon
+        }}
       />
       <RatingBars
         data={data}
-        progressFilledColor={progressFilledColor}
-        progressUnfilledColor={progressUnfilledColor}
-        progressBarText={progressBarText}
-        progressBarClassname={progressBarClassname}
-        onProgressClick={onProgressClick}
+        options={{
+          filledColor: options?.filledColor,
+          unfilledColor: options?.unfilledColor,
+          classname: options?.classname,
+          progressPercentage: options?.progressPercentage,
+          progressBarText: options?.progressBarText,
+          onClick: options?.onClick
+        }}
       />
     </div>
   );

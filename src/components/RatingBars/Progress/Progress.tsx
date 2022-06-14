@@ -7,19 +7,19 @@ interface Props {
   value: number;
   total: number;
   percentage: number;
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
+  filledColor?: string;
+  unfilledColor?: string;
 }
 
 // eslint-disable-next-line space-before-function-paren
 function Progress(props: Props) {
-  const { percentage, progressFilledColor, progressUnfilledColor } = props;
+  const { percentage, filledColor, unfilledColor } = props;
 
   return (
     <div
       className={classes.progress_bar}
       style={{
-        backgroundColor: progressUnfilledColor || progressBarColors.unfilled
+        backgroundColor: unfilledColor || progressBarColors.unfilled
       }}
       role="progressbar"
       aria-valuenow={40}
@@ -29,7 +29,7 @@ function Progress(props: Props) {
         className={classes.filled_bar}
         style={{
           width: `${percentage}%`,
-          backgroundColor: progressFilledColor || progressBarColors.filled
+          backgroundColor: filledColor || progressBarColors.filled
         }}></div>
     </div>
   );
