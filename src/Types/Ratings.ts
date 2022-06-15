@@ -1,16 +1,8 @@
-import React from 'react';
 import { Data } from './Data';
-import { ProgressBarProps } from './ProgressBar';
+import { Options } from './Options';
 
 export type RatingsProps = {
-  containerClassname?: string;
   data: Data[];
-  showRatingHeader: boolean;
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
-  ratingIconClassname?: string;
-  ratingHeaderClassname?: string;
-  FilledRatingIcon?: React.ReactElement;
-  UnfilledRatingIcon?: React.ReactElement;
-  ratingHeaderTextClassname?: string;
-} & ProgressBarProps;
+  options?: Options;
+};
+// & ProgressBarProps;

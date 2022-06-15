@@ -6,7 +6,7 @@ import { starColors } from '../../../Consts/colors';
 
 interface Props {
   data: Data[];
-  progressFilledColor?: string;
+  filledColor?: string;
   ratingIconClassname?: string;
   FilledRatingIcon: React.ReactElement;
   width: string;
@@ -14,13 +14,7 @@ interface Props {
 
 // eslint-disable-next-line
 function FilledStarRating(props: Props) {
-  const {
-    data,
-    progressFilledColor = '',
-    ratingIconClassname = '',
-    FilledRatingIcon,
-    width
-  } = props;
+  const { data, filledColor = '', ratingIconClassname = '', FilledRatingIcon, width } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
 
   return (
@@ -30,7 +24,7 @@ function FilledStarRating(props: Props) {
           key={`unfilled-star custom icon ${i}`}
           className={clsx(classes.star, ratingIconClassname)}
           style={{
-            color: progressFilledColor || starColors.filled
+            color: filledColor || starColors.filled
           }}
         >
           {FilledRatingIcon}

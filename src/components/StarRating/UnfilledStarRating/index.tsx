@@ -8,8 +8,8 @@ import { starColors } from '../../../Consts/colors';
 
 interface Props {
   data: Data[];
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
+  filledColor?: string;
+  unfilledColor?: string;
   ratingIconClassname?: string;
   FilledRatingIcon: React.ReactElement;
   UnfilledRatingIcon: React.ReactElement;
@@ -19,8 +19,8 @@ interface Props {
 const StarRating = (props: Props) => {
   const {
     data,
-    progressFilledColor,
-    progressUnfilledColor,
+    filledColor,
+    unfilledColor,
     ratingIconClassname = '',
     FilledRatingIcon,
     UnfilledRatingIcon,
@@ -36,15 +36,15 @@ const StarRating = (props: Props) => {
           className={clsx(classes.star, ratingIconClassname)}
           style={{
             // eslint-disable-next-line no-unneeded-ternary
-            color: progressUnfilledColor || starColors.unfilled
+            color: unfilledColor || starColors.unfilled
           }}
         >
-          {progressUnfilledColor ? FilledRatingIcon : UnfilledRatingIcon}
+          {unfilledColor ? FilledRatingIcon : UnfilledRatingIcon}
         </span>
       ))}
       <FilledStarRating
         data={data}
-        progressFilledColor={progressFilledColor}
+        filledColor={filledColor}
         ratingIconClassname={ratingIconClassname}
         FilledRatingIcon={FilledRatingIcon}
         width={width}

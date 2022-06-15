@@ -1,12 +1,7 @@
-import React from 'react';
 import { Data } from './Data';
+import { ProgressOptions } from './Options';
 
 export type ProgressBarProps = {
   data: Data[];
-  progressBarClassname?: string;
-  progressBarText?: React.ReactElement | string;
-  onProgressClick?: (data: Data) => void;
-  progressFilledColor?: string;
-  progressUnfilledColor?: string;
-  progressbarPercent?: boolean;
+  options?: ProgressOptions;
 };
