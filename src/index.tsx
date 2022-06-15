@@ -1,5 +1,5 @@
 import Ratings from './components/Ratings/Ratings';
-import RatingBars from './components/RatingBars/RatingBars';
-import StarRating from './components/StarRating/StarRating';
+import ProgressBar from './components/ProgressBar/ProgressBar';
+import Rating from './components/Rating/Rating';
 
-export { Ratings, StarRating, RatingBars };
+export { Ratings, Rating, ProgressBar };

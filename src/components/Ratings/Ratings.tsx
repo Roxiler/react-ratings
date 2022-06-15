@@ -1,34 +1,42 @@
 import React from 'react';
-import StarRating from '../StarRating/StarRating';
+import StarRating from '../Rating/Rating';
 import classes from './ratings.module.css';
 import { RatingsProps } from '../../Types/Ratings';
-import RatingBars from '../RatingBars/RatingBars';
+import RatingBars from '../ProgressBar/ProgressBar';
 
-const Ratings = ({ data, options }: RatingsProps) => {
+const Ratings = ({
+  data,
+  options = {
+    progressBar: {},
+    rating: {}
+  }
+}: RatingsProps) => {
+  const { progressBar, rating } = options;
+
   return (
     <div className={classes.container}>
       <StarRating
         data={data}
         options={{
-          showRatingHeader: options?.showRatingHeader,
-          filledColor: options?.filledColor,
-          unfilledColor: options?.unfilledColor,
-          ratingIconClassname: options?.ratingHeaderClassname,
-          ratingHeaderClassname: options?.ratingHeaderClassname,
-          FilledRatingIcon: options?.FilledRatingIcon,
-          UnfilledRatingIcon: options?.UnfilledRatingIcon,
-          customRatingHeader: options?.customRatingHeader
+          show: rating?.show,
+          filledColor: rating?.filledColor,
+          unfilledColor: rating?.unfilledColor,
+          ratingIconClassname: rating?.className,
+          className: rating?.className,
+          FilledRatingIcon: rating?.FilledRatingIcon,
+          UnfilledRatingIcon: rating?.UnfilledRatingIcon,
+          headerText: rating?.headerText
         }}
       />
       <RatingBars
         data={data}
         options={{
-          filledColor: options?.filledColor,
-          unfilledColor: options?.unfilledColor,
-          className: options?.className,
-          progressPercentage: options?.progressPercentage,
-          progressBarText: options?.progressBarText,
-          onProgressBarClick: options?.onProgressBarClick
+          filledColor: progressBar?.filledColor,
+          unfilledColor: progressBar?.unfilledColor,
+          className: progressBar?.className,
+          percentage: progressBar?.percentage,
+          progressBarText: progressBar?.progressBarText,
+          onClick: progressBar?.onClick
         }}
       />
     </div>

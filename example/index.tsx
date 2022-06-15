@@ -2,7 +2,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BsCircle, BsCircleFill } from 'react-icons/bs';
-import { Ratings } from '../src';
+import { Ratings, Rating, ProgressBar } from '../src';
 import './styles.css';
 const App = () => {
   const data = [
@@ -20,12 +20,12 @@ const App = () => {
     }
   ];
 
-  const showRatingHeader = true;
+  const show = true;
   const progressFilledColor = '#656bdf';
   const progressUnfilledColor = '#243565';
   const ratingIconClassname = 'custom';
-  const ratingHeaderClassname = 'header';
-  const customRatingHeader = (percentage: number) => <p>hello {percentage}</p>;
+  const className = 'header';
+  const headerText = (percentage: number) => <p>hello {percentage}</p>;
 
   const ProgressPerecent = (percent) => <div>{Math.ceil(percent)} %% </div>;
   const ProgressBarText = (data) => <div>{`${data.rating} rating`} </div>;
@@ -35,21 +35,52 @@ const App = () => {
       <Ratings
         data={data}
         options={{
-          showRatingHeader,
-          // progressPercentage: ProgressPerecent
+          progressBar: {
+            // percentage: ProgressPerecent
+            progressBarText: ProgressBarText,
+            className: 'progress-container',
+            filledColor: progressFilledColor,
+            unfilledColor: progressUnfilledColor,
+            onClick: (item) => {
+              console.log('test', item);
+            }
+            // FilledRatingIcon: <BsCircleFill />,
+            // UnfilledRatingIcon: <BsCircle />
+          },
+          rating: {
+            ratingIconClassname: ratingIconClassname,
+            className: className,
+            show,
+            // headerText,
+            filledColor: progressFilledColor,
+            unfilledColor: progressUnfilledColor
+          }
+        }}
+      />
+
+      <Rating
+        data={data}
+        options={{
+          ratingIconClassname: ratingIconClassname,
+          className: className,
+          show: show,
+          // headerText,
+          filledColor: progressFilledColor,
+          unfilledColor: progressUnfilledColor
+        }}
+      />
+
+      <ProgressBar
+        data={data}
+        options={{
           progressBarText: ProgressBarText,
           className: 'progress-container',
           filledColor: progressFilledColor,
           unfilledColor: progressUnfilledColor,
-          onProgressBarClick: (item) => {
+          onClick: (item) => {
             console.log('test', item);
-          },
-          ratingIconClassname: ratingIconClassname,
-          ratingHeaderClassname: ratingHeaderClassname
-          // FilledRatingIcon: <BsCircleFill />,
-          // UnfilledRatingIcon: <BsCircle />
+          }
         }}
-        customRatingHeader={customRatingHeader}
       />
     </div>
   );

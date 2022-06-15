@@ -1,23 +1,26 @@
 import React from 'react';
 import { Data } from './Data';
 
-export type ProgressOptions = {
+export type Progress = {
   filledColor?: string;
   unfilledColor?: string;
-  progressPercentage?: (percent: number, data: Data) => React.ReactElement;
+  percentage?: (percent: number, data: Data) => React.ReactElement;
   progressBarText?: (data: Data) => React.ReactElement;
   className?: string;
-  onProgressBarClick?: (data: Data) => void;
+  onClick?: (data: Data) => void;
 };
 
-export type StarOptions = {
-  showRatingHeader?: boolean;
+export type Rating = {
+  show?: boolean;
   filledColor?: string;
   unfilledColor?: string;
   ratingIconClassname?: string;
-  ratingHeaderClassname?: string;
+  className?: string;
   FilledRatingIcon?: React.ReactElement;
   UnfilledRatingIcon?: React.ReactElement;
-  customRatingHeader?: (percent: number) => React.ReactElement;
+  headerText?: (percent: number) => React.ReactElement;
 };
-export type Options = ProgressOptions & StarOptions;
+export type Options = {
+  progressBar: Progress;
+  rating: Rating;
+};

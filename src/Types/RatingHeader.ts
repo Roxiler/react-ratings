@@ -1,7 +1,7 @@
 import { Data } from './Data';
-import { StarOptions } from './Options';
+import { Rating } from './Options';
 
 export type RatingHeaderType = {
   data: Data[];
-  options?: StarOptions;
+  options?: Rating;
 };

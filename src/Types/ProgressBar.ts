@@ -1,7 +1,7 @@
 import { Data } from './Data';
-import { ProgressOptions } from './Options';
+import { Progress } from './Options';
 
 export type ProgressBarProps = {
   data: Data[];
-  options?: ProgressOptions;
+  options?: Progress;
 };
