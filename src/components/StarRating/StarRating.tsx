@@ -19,8 +19,10 @@ function StarRating(props: RatingHeaderType) {
     showRatingHeader,
     ratingHeaderClassname = '',
     FilledRatingIcon = <AiFillStar />,
-    UnfilledRatingIcon = <AiOutlineStar />
+    UnfilledRatingIcon = <AiOutlineStar />,
+    customRatingHeader
   } = options;
+
   const numberOfRating = Math.max(...data.map((data) => data.rating));
   const totalCount = data.reduce((acc, obj) => acc + obj.count, 0);
   const per: PercentageObj = {};
@@ -51,9 +53,11 @@ function StarRating(props: RatingHeaderType) {
             UnfilledRatingIcon={UnfilledRatingIcon}
             width={starPercentageRounded}
           />
-          <p className={clsx(classes.rating, ratingHeaderClassname)}>
-            {totalPercentage.toFixed(2)} out of {numberOfRating}
-          </p>
+          {customRatingHeader?.(totalPercentage) || (
+            <p className={clsx(classes.rating, ratingHeaderClassname)}>
+              {totalPercentage.toFixed(2)} out of {numberOfRating}
+            </p>
+          )}
         </div>
       )}
     </>

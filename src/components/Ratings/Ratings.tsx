@@ -16,7 +16,8 @@ const Ratings = ({ data, options }: RatingsProps) => {
           ratingIconClassname: options?.ratingHeaderClassname,
           ratingHeaderClassname: options?.ratingHeaderClassname,
           FilledRatingIcon: options?.FilledRatingIcon,
-          UnfilledRatingIcon: options?.UnfilledRatingIcon
+          UnfilledRatingIcon: options?.UnfilledRatingIcon,
+          customRatingHeader: options?.customRatingHeader
         }}
       />
       <RatingBars

@@ -18,5 +18,6 @@ export type StarOptions = {
   ratingHeaderClassname?: string;
   FilledRatingIcon?: React.ReactElement;
   UnfilledRatingIcon?: React.ReactElement;
+  customRatingHeader?: (percent: number) => React.ReactElement;
 };
 export type Options = ProgressOptions & StarOptions;

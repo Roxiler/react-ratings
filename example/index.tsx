@@ -25,6 +25,7 @@ const App = () => {
   const progressUnfilledColor = '#243565';
   const ratingIconClassname = 'custom';
   const ratingHeaderClassname = 'header';
+  const customRatingHeader = (percentage: number) => <p>hello {percentage}</p>;
 
   const ProgressPerecent = (percent) => <div>{Math.ceil(percent)} %% </div>;
   const ProgressBarText = (data) => <div>{`${data.rating} rating`} </div>;
@@ -48,6 +49,7 @@ const App = () => {
           // FilledRatingIcon: <BsCircleFill />,
           // UnfilledRatingIcon: <BsCircle />
         }}
+        customRatingHeader={customRatingHeader}
       />
     </div>
   );

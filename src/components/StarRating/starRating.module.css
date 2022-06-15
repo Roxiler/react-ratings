@@ -5,4 +5,5 @@
 .starRating .rating {
   font-size: 14px;
   white-space: nowrap;
+  margin-left: 1rem;
 }
