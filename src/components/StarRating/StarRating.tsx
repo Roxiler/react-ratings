@@ -11,11 +11,12 @@ interface PercentageObj {
 
 // eslint-disable-next-line space-before-function-paren
 function StarRating(props: RatingHeaderType) {
-  const { data, showRatingHeader, options = {} } = props;
+  const { data, options = {} } = props;
   const {
     filledColor,
     unfilledColor,
     ratingIconClassname,
+    showRatingHeader,
     ratingHeaderClassname = '',
     FilledRatingIcon = <AiFillStar />,
     UnfilledRatingIcon = <AiOutlineStar />

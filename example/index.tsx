@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BsCircle, BsCircleFill } from 'react-icons/bs';
@@ -32,14 +33,14 @@ const App = () => {
     <div style={{ width: '500px', padding: '10px' }}>
       <Ratings
         data={data}
-        showRatingHeader={showRatingHeader}
         options={{
+          showRatingHeader,
           // progressPercentage: ProgressPerecent
           progressBarText: ProgressBarText,
-          classname: 'progress-container',
+          className: 'progress-container',
           filledColor: progressFilledColor,
           unfilledColor: progressUnfilledColor,
-          onClick: (item) => {
+          onProgressBarClick: (item) => {
             console.log('test', item);
           },
           ratingIconClassname: ratingIconClassname,

@@ -4,13 +4,13 @@ import classes from './ratings.module.css';
 import { RatingsProps } from '../../Types/Ratings';
 import RatingBars from '../RatingBars/RatingBars';
 
-const Ratings = ({ data, showRatingHeader = false, options }: RatingsProps) => {
+const Ratings = ({ data, options }: RatingsProps) => {
   return (
     <div className={classes.container}>
       <StarRating
         data={data}
-        showRatingHeader={showRatingHeader}
         options={{
+          showRatingHeader: options?.showRatingHeader,
           filledColor: options?.filledColor,
           unfilledColor: options?.unfilledColor,
           ratingIconClassname: options?.ratingHeaderClassname,
@@ -24,10 +24,10 @@ const Ratings = ({ data, showRatingHeader = false, options }: RatingsProps) => {
         options={{
           filledColor: options?.filledColor,
           unfilledColor: options?.unfilledColor,
-          classname: options?.classname,
+          className: options?.className,
           progressPercentage: options?.progressPercentage,
           progressBarText: options?.progressBarText,
-          onClick: options?.onClick
+          onProgressBarClick: options?.onProgressBarClick
         }}
       />
     </div>

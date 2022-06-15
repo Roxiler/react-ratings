@@ -3,6 +3,5 @@ import { StarOptions } from './Options';
 
 export type RatingHeaderType = {
   data: Data[];
-  showRatingHeader: boolean;
   options?: StarOptions;
 };

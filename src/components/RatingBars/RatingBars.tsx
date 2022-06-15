@@ -7,7 +7,7 @@ import classes from './ratingBars.module.css';
 // eslint-disable-next-line space-before-function-paren
 function RatingBars(props: ProgressBarProps) {
   const { data = [], options = {} } = props;
-  const { classname = '', filledColor, unfilledColor, onClick } = options;
+  const { className = '', filledColor, unfilledColor, onProgressBarClick } = options;
 
   interface InitialGroupedObj {
     [key: number]: number;
@@ -52,8 +52,8 @@ function RatingBars(props: ProgressBarProps) {
         return (
           <div
             key={index + count}
-            className={clsx(classes.inner_container, classname)}
-            onClick={() => onClick && onClick(item)}>
+            className={clsx(classes.inner_container, className)}
+            onClick={() => onProgressBarClick && onProgressBarClick(item)}>
             {options?.progressBarText && typeof options?.progressBarText !== 'string' ? (
               options.progressBarText(item)
             ) : (
@@ -75,7 +75,7 @@ function RatingBars(props: ProgressBarProps) {
               {!options?.progressPercentage ? (
                 <span className={classes.percent_text}>{Math.ceil(percent)} %</span>
               ) : (
-                <React.Fragment>{options.progressPercentage(percent, data)} </React.Fragment>
+                <React.Fragment>{options.progressPercentage(percent, item)} </React.Fragment>
               )}
             </div>
           </div>
