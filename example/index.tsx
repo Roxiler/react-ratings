@@ -1,7 +1,5 @@
-/*eslint-disable*/
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BsCircle, BsCircleFill } from 'react-icons/bs';
 import { Ratings, Rating, ProgressBar } from '../src';
 import './styles.css';
 const App = () => {
@@ -25,9 +23,9 @@ const App = () => {
   const progressUnfilledColor = '#243565';
   const ratingIconClassname = 'custom';
   const className = 'header';
-  const headerText = (percentage: number) => <p>hello {percentage}</p>;
+  // const headerText = (percentage: number) => <p>hello {percentage}</p>;
 
-  const ProgressPerecent = (percent) => <div>{Math.ceil(percent)} %% </div>;
+  // const ProgressPerecent = (percent) => <div>{Math.ceil(percent)} %% </div>;
   const ProgressBarText = (data) => <div>{`${data.rating} rating`} </div>;
 
   return (
@@ -48,8 +46,8 @@ const App = () => {
             // UnfilledRatingIcon: <BsCircle />
           },
           rating: {
-            ratingIconClassname: ratingIconClassname,
-            className: className,
+            ratingIconClassname,
+            className,
             show,
             // headerText,
             filledColor: progressFilledColor,
@@ -61,9 +59,9 @@ const App = () => {
       <Rating
         data={data}
         options={{
-          ratingIconClassname: ratingIconClassname,
-          className: className,
-          show: show,
+          ratingIconClassname,
+          className,
+          show,
           // headerText,
           filledColor: progressFilledColor,
           unfilledColor: progressUnfilledColor
