@@ -53,14 +53,11 @@ function RatingBars(props: ProgressBarProps) {
           <div
             key={index + count}
             className={clsx(classes.inner_container, className)}
-            onClick={() => onClick && onClick(item)}
-          >
-            {options?.progressBarText && typeof options?.progressBarText !== 'string' ? (
+            onClick={() => onClick && onClick(item)}>
+            {options?.progressBarText ? (
               options.progressBarText(item)
             ) : (
-              <span className={classes.subtext}>
-                {rating}&nbsp;{options?.progressBarText}
-              </span>
+              <span className={classes.subtext}>{rating}&nbsp;stars</span>
             )}
 
             <Progress
