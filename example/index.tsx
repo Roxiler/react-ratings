@@ -58,27 +58,27 @@ const App = () => {
 
       <Rating
         data={data}
-        options={{
-          ratingIconClassname,
-          className,
-          show,
-          // headerText,
-          filledColor: progressFilledColor,
-          unfilledColor: progressUnfilledColor
-        }}
+        // options={{
+        //   ratingIconClassname,
+        //   className,
+        //   show,
+        //   // headerText,
+        //   filledColor: progressFilledColor,
+        //   unfilledColor: progressUnfilledColor
+        // }}
       />
 
       <ProgressBar
         data={data}
-        options={{
-          progressBarText: ProgressBarText,
-          className: 'progress-container',
-          filledColor: progressFilledColor,
-          unfilledColor: progressUnfilledColor,
-          onClick: (item) => {
-            console.log('test', item);
-          }
-        }}
+        // options={{
+        //   progressBarText: ProgressBarText,
+        //   className: 'progress-container',
+        //   filledColor: progressFilledColor,
+        //   unfilledColor: progressUnfilledColor,
+        //   onClick: (item) => {
+        //     console.log('test', item);
+        //   }
+        // }}
       />
     </div>
   );

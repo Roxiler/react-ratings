@@ -1,6 +1,6 @@
 import React from 'react';
 import StarRating from '../Rating/Rating';
-import classes from './ratings.module.css';
+import './ratings.css';
 import { RatingsProps } from '../../Types/Ratings';
 import RatingBars from '../ProgressBar/ProgressBar';
 
@@ -14,7 +14,7 @@ const Ratings = ({
   const { progressBar, rating } = options;
 
   return (
-    <div className={classes.container}>
+    <div className={'ratings_container'}>
       <StarRating
         data={data}
         options={{

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import UnfilledStartRating from './UnfilledStarRating';
-import classes from './starRating.module.css';
+import './starRating.css';
 import { RatingHeaderType } from '../../Types/RatingHeader';
 import { clsx } from '../../utilis/clsx';
 
@@ -43,7 +43,7 @@ function StarRating(props: RatingHeaderType) {
   return (
     <>
       {show && (
-        <div className={classes.starRating}>
+        <div className={'starRating'}>
           <UnfilledStartRating
             data={data}
             filledColor={filledColor}
@@ -54,7 +54,7 @@ function StarRating(props: RatingHeaderType) {
             width={starPercentageRounded}
           />
           {headerText?.(totalPercentage) || (
-            <p className={clsx(classes.rating, className)}>
+            <p className={clsx('rating', className)}>
               {totalPercentage.toFixed(2)} out of {numberOfRating}
             </p>
           )}
