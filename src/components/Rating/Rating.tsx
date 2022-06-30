@@ -16,7 +16,7 @@ function StarRating(props: RatingHeaderType) {
     filledColor,
     unfilledColor,
     ratingIconClassname,
-    show,
+    show = true,
     className = '',
     FilledRatingIcon = <AiFillStar />,
     UnfilledRatingIcon = <AiOutlineStar />,
