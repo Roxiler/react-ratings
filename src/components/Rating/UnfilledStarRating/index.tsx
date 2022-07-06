@@ -27,9 +27,10 @@ const StarRating = (props: Props) => {
     width
   } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
+  console.log({ numberOfRating });
   return (
     <div className={'unfilled'}>
-      {[...Array(numberOfRating)].map((_, i) => (
+      {[...new Array(numberOfRating).fill('_')].map((_, i) => (
         <span
           key={`unfilled-star custom icon ${i}`}
           // eslint-disable-next-line no-unneeded-ternary

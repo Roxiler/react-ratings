@@ -43,6 +43,8 @@ function RatingBars(props: ProgressBarProps) {
     return acc + obj.count;
   }, 0);
 
+  console.log({ combinedData });
+
   return (
     <div className={'container'}>
       {combinedData.map((item, index) => {
