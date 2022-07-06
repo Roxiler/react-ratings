@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from 'react';
 import FilledStarRating from '../FilledStarRating';
-import classes from './Unfilled.module.css';
+import './Unfilled.css';
 import { Data } from '../../../Types/Data';
 import { clsx } from '../../../utilis/clsx';
 import { starColors } from '../../../Consts/colors';
@@ -28,12 +28,12 @@ const StarRating = (props: Props) => {
   } = props;
   const numberOfRating = Math.max(...data.map((data) => data.rating));
   return (
-    <div className={classes.unfilled}>
+    <div className={'unfilled'}>
       {[...Array(numberOfRating)].map((_, i) => (
         <span
           key={`unfilled-star custom icon ${i}`}
           // eslint-disable-next-line no-unneeded-ternary
-          className={clsx(classes.star, ratingIconClassname)}
+          className={clsx('star', ratingIconClassname)}
           style={{
             // eslint-disable-next-line no-unneeded-ternary
             color: unfilledColor || starColors.unfilled
