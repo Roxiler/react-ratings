@@ -24,7 +24,7 @@ function RatingBars(props: ProgressBarProps) {
   }, initialGroupedObj);
 
   const maximumRating = Math.max(...data.map((data) => data.rating));
-  const possibleRatings = [...Array(maximumRating)].map((_, i) => i + 1);
+  const possibleRatings = [...new Array(maximumRating).fill('_')].map((_, i) => i + 1);
 
   const addMissedRating: InitialGroupedObj = possibleRatings.reduce((acc, rating) => {
     if (groupedData[rating]) {
