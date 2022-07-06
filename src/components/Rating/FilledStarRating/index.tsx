@@ -19,7 +19,7 @@ function FilledStarRating(props: Props) {
 
   return (
     <div className={'filled'} style={{ width }}>
-      {[...Array(numberOfRating)].map((_, i) => (
+      {[...new Array(numberOfRating).fill('_')].map((_, i) => (
         <span
           key={`unfilled-star custom icon ${i}`}
           className={clsx('star', ratingIconClassname)}
