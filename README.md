@@ -1,10 +1,10 @@
-**react-custom-ratings**
+**react-custom-ratings**  
 react-custom-ratings is a react rating component which supports custom icons and styles and also provides progress bar which shows detailed information on ratings.
 
 **Installation**
-
+```
 npm install react-custom-ratings
-
+```
 
 **Usage** 
   ```
