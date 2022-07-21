@@ -11,7 +11,7 @@ npm install react-custom-ratings
 
 https://codesandbox.io/s/interesting-knuth-rjg53s?file=/src/App.js
 
-![alt text]('./assets/example.png')
+![alt text](https://github.com/Roxiler/react-ratings/blob/main/assets/example.png)
 
 **Usage**
 
