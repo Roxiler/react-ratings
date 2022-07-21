@@ -58,9 +58,12 @@ const App = () => {
 
       <Rating
         data={data}
+        options={{
+          className: 'rating'
+        }}
         // options={{
         //   ratingIconClassname,
-        //   className,
+        // className,
         //   show,
         //   // headerText,
         //   filledColor: progressFilledColor,

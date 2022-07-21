@@ -7,6 +7,12 @@ react-custom-ratings is a react rating component which supports custom icons and
 npm install react-custom-ratings
 ```
 
+**Demo**
+
+https://codesandbox.io/s/interesting-knuth-rjg53s?file=/src/App.js
+
+![alt text]('./assets/example.png')
+
 **Usage**
 
 ```
